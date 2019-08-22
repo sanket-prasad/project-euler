@@ -2,22 +2,21 @@ public class problem9
 {
     public static void main(String args[])
     {
-        int a,b,c,x,y,z,p;
-        a=1;b=2;c=3;x=0;y=0;z=0;
+        int s=1000;
+        int p=1;
 
-        while(c<1000 && b<c && a<b)
-        x=a*a;
-        y=b*b;
-        z=c*c;
-        if(x+y==z)
-        {
-            if(a+b+c==1000)
-            {
-                p=a*b*c;
-            }
-        }
-        c++;
-        b++;
-        a++;
+       loop1: for(int a=1;a<=s/3;a++)
+       {
+           for(int b=s/3;b<=2*(s/3);b++)
+           {
+               int c=s-(a+b);
+               if(c*c==(a*a)+(b*b))
+               {
+                   p=a*b*c;
+                   break loop1;
+               }
+           }
+       }
+       System.out.println(p);
     }
 }
