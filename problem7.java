@@ -1,31 +1,33 @@
 public class problem7
 {
-    public static void main(String args[])
-    {
-        int c=0; int cc=0;int a=0;
-        int i=1;
-        loop1:while(true)
-        {
-            loop2:for(int f=1;f<=i;f++)
+    public static boolean isprime(long i)
+    {   
+            long a=i;
+            for(int f=3;f<=(int)Math.sqrt(a);f=f+2)
             {
-                if(i%f==0)
+                if(a%f==0)
                 {
-                    c++;
-                    if(c==3)
-                    break loop2;
-
+                    return false;
                 }
 
             }
-            if(c==2)
-            cc++;
-            if(cc==10001)
+            return true;
+    }
+    
+    public static void main(String args[])
+    {
+        int cc=0;
+        int i=1;
+        loop1:while(true)
+        {
+            if(isprime(i))
             {
-              a=i;
-              break loop1;
+                cc++;
             }
+            if(cc==10001)
+            {break;}
             i=i+2;
         }
-        System.out.println(a);
+        System.out.println(i);
     }
 }
