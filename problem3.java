@@ -1,29 +1,34 @@
 public class problem3
 {
+   public static boolean isprime(long i)
+    {   
+            long a=i;
+            for(int f=3;f<=(int)Math.sqrt(a);f=f+2)
+            {
+                if(a%f==0)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+    }
+    
+    
     public static void main (String args[])
     {
         long i=0L;
         long n = 600851475143L;
 
-        loop1: for(i=n; i>1; i=i-2)
+        for(i=(int)Math.sqrt(n); i>1; i--)
         {
-            if(n%i==0)
+            if(n%i==0 && isprime(i))
             {
-                int c=0;
-                for(int f=2;f<=Math.sqrt(i);f++)
-                {
-                    if(i%f==0)
-                    {
-                        continue loop1;
-                    }
-                }
-                if(c==0)
-                {
-                    System.out.println(i);
-                    break loop1;
-                }
+              System.out.println(i);
+              break;
             }
         }
-        
+
+
     }
 }
